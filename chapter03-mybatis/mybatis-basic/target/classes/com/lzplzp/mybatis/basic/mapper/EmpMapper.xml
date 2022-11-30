@@ -19,8 +19,20 @@
         </foreach>
     </insert>
 
+        <!--
+            若mapper接口中的方法参数为单个的字面量类型
+            此时可以使用${}和#{}以任意的名称获取参数的值，注意${}需要手动加单引号
+       -->
     <select id="getByEid" resultType="Emp" >
         select * from t_emp where eid = #{aaaa}
+    </select>
+
+    <select id="getByEidAndName" resultType="Emp" >
+        select * from t_emp where eid = #{arg1} and emp_name = #{arg2}
+    </select>
+
+    <select id="getByMap" resultType="Emp">
+        select * from t_emp where eid = #{eid} and emp_name = #{empName}
     </select>
 
 </mapper>

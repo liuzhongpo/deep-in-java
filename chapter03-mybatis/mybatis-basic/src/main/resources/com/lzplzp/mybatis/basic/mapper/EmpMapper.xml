@@ -31,4 +31,8 @@
         select * from t_emp where eid = #{arg1} and emp_name = #{arg2}
     </select>
 
+    <select id="getByMap" resultType="Emp">
+        select * from t_emp where eid = #{eid} and emp_name = #{empName}
+    </select>
+
 </mapper>

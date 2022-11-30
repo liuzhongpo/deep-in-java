@@ -8,9 +8,7 @@ import com.lzplzp.mybatis.basic.util.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author lzplzp
@@ -45,6 +43,17 @@ public class EmpMapperTest {
         SqlSession sqlSession = SqlSessionUtil.getSqlSession("mybatis-config.xml");
         EmpMapper empMapper = sqlSession.getMapper(EmpMapper.class);
         Emp emp = empMapper.getByEid(2);
+        System.out.println(emp);
+    }
+
+    @Test
+    public void testGetByMap() {
+        SqlSession sqlSession = SqlSessionUtil.getSqlSession("mybatis-config.xml");
+        EmpMapper empMapper = sqlSession.getMapper(EmpMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("eid",2);
+        map.put("empName","李四");
+        Emp emp = empMapper.getByMap(map);
         System.out.println(emp);
     }
 }

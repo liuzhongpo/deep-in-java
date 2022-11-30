@@ -4,6 +4,7 @@ import com.lzplzp.mybatis.basic.pojo.Emp;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author lzplzp
@@ -18,5 +19,7 @@ public interface EmpMapper {
     Emp getByEid(int eid);
 
     Emp getByEidAndName(int eid,String empName);
+
+    Emp getByMap(Map<String,Object> map);
 
 }
